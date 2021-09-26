@@ -1,0 +1,50 @@
+﻿<canvas id='tablero' width=500 height=450></canvas>
+<script>
+function triangulo(cd,colorBorde,colorRelleno,grosor) {
+ctx.beginPath();
+ctx.strokeStyle = colorBorde;
+ctx.fillStyle = colorRelleno;
+ctx.lineWidth = grosor;
+ctx.moveTo(cd[0],cd[1]);
+ctx.lineTo(cd[2],cd[3]);
+ctx.lineTo(cd[4],cd[5]);
+ctx.closePath();
+ctx.stroke();
+ctx.fill();
+}
+function recorte(arr) {
+ctx.beginPath();
+ctx.moveTo(arr[0],arr[1]);
+ctx.lineTo(arr[2],arr[3]);
+ctx.lineTo(arr[4],arr[5]);
+ctx.clip();
+}
+function rectangulo(rc,colorBordeR,colorRellenoR,grosorR) {
+ctx.beginPath();
+ctx.strokeStyle = colorBordeR;
+ctx.fillStyle = colorRellenoR;
+ctx.lineWidth = grosorR;
+ctx.moveTo(rd[0],rd[1]);
+ctx.lineTo(rd[2],rd[3]);
+ctx.lineTo(rd[4],rd[5]);
+ctx.lineTo(rd[6],rd[7]);
+ctx.closePath();
+ctx.stroke();
+ctx.fill();
+}
+function recorteR(ari) {
+ctx.beginPath();
+ctx.moveTo(ari[0],ari[1]);
+ctx.lineTo(ari[2],ari[3]);
+ctx.lineTo(ari[4],ari[5]);
+ctx.lineTo(ari[6],ari[7]);
+ctx.clip();
+}
+var c = document.getElementById('tablero')
+var ctx = c.getContext('2d')
+triangulo(117 15,392 165, 132 299, 'gray', 'rgba(68,114,196)'); // triangulo
+rectangulo(16 29,370 29,370 75,16 75, 'gray','rgba(248,203,173)');//rec naranja
+rectangulo(315 12,355 12,355 308,315 309, 'gray','rgba(248,203,173)');//rec verde
+rectangulo(363 235, 363 276, 17 275, 17 235, 'gray','rgba(248,203,173)');//rec azul
+rectangulo(42 305,85 305,86 14,42 14, 'gray','rgba(248,203,173)');//rec amarillo
+</script>
